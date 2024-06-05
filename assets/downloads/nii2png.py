@@ -32,13 +32,16 @@ for case in NiiCaseLst:
 
     img_data_uint16 = img_data_unsigned.astype(np.uint16)
 
-    for i in range(img_data_uint16.shape[..., 0]):
-        out_folder_prefix = case.split('_')[0]
-        case_output_folder = os.path.join(output_folder, out_folder_prefix)
-        os.mkdir(case_output_folder)
+    out_folder_prefix = case.split('_')[0]
+    case_output_folder = os.path.join(output_folder, out_folder_prefix)
+
+    print(case_output_folder)
+
+    for i in range(img_data_uint16.shape[-1]):
+        if not os.path.exists(case_output_folder):
+            os.mkdir(case_output_folder)
         out_path = str(os.path.join(case_output_folder, "T" + str(i+1).zfill(3) + ".png"))
 
         img_uint16_slice = img_data_uint16[..., i]
         img = np.repeat(img_uint16_slice, 3, axis=-1)
         cv2.imwrite(out_path, img)
-        print(out_folder_prefix + "\n\n")
