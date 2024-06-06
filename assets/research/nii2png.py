@@ -44,5 +44,5 @@ for case in NiiCaseLst:
 
         img_uint16_slice = img_data_uint16[i, ...]
         img = np.repeat(img_uint16_slice[..., np.newaxis], 3, axis=-1)
-        print(img.shape, img.dtype)
+        # print(img.shape, img.dtype)
         cv2.imwrite(out_path, img)
