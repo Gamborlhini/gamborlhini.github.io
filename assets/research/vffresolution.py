@@ -18,7 +18,7 @@ def get_resolution(vff_folder, output_folder):
 
                 if line_str.startswith('spacing='):
                     spacing_lst = re.findall(r'\d+.\d+', line_str)
-            csv_lst.append([file, spacing_lst[0], spacing_lst[1], spacing_lst[2]])
+            csv_lst.append([os.path.basename(file).split(".")[0], spacing_lst[0], spacing_lst[1], spacing_lst[2]])
         with open(os.path.join(output_folder, "resolution.csv"), 'w') as f:
             csv_writer = csv.writer(f)
             csv_writer.writerows(csv_lst)
