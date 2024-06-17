@@ -4,7 +4,6 @@ import os
 
 import numpy as np
 import glob
-from utils import utils
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--input', type=str)
@@ -26,12 +25,17 @@ except FileNotFoundError:
     print(FileNotFoundError)
     raise
 
+
+def pred_volume(pred_masks):
+    pred_masks = pred_masks.astype(bool)
+    return np.sum(pred_masks.flatten())
+
+
 case_list = sorted(glob.glob(input_path + "/*"))
 output_file = os.path.join(output_path, "output.csv")
 
 with open(resolution, "r", newline='') as csvfile:
     resolution_list = list(csv.reader(csvfile, delimiter=','))
-
 
 with open(output_file, "w") as f:
     writer = csv.writer(f)
@@ -44,32 +48,31 @@ with open(output_file, "w") as f:
                      ])
 
 for idx1, case in case_list:
-
     case_resolution = resolution_list[resolution_list[:, 0].index(case)][1]
-    scaling_factor = int(case_resolution)**3
+    scaling_factor = int(case_resolution) ** 3
 
     row = [str(case)]
 
     with file(os.path.join(case, "full_mask.npy"), "r") as file:
         full_mask = np.load(file)
-        full_volume = utils.pred_volume(full_mask)
+        full_volume = pred_volume(full_mask)
         row.append(full_volume)
-        row.append(full_volume*scaling_factor)
+        row.append(full_volume * scaling_factor)
 
     with file(os.path.join(case, "infraspinatus_mask.npy"), "r") as file:
         infraspinatus_mask = np.load(file)
-        infraspinatus_volume = utils.pred_volume(infraspinatus_mask)
-        row.append(infraspinatus_volume*scaling_factor)
+        infraspinatus_volume = pred_volume(infraspinatus_mask)
+        row.append(infraspinatus_volume * scaling_factor)
 
     with file(os.path.join(case, "supraspinatus_mask.npy"), "r") as file:
         supraspinatus_mask = np.load(file)
-        supraspinatus_volume = utils.pred_volume(supraspinatus_mask)
-        row.append(supraspinatus_volume*scaling_factor)
+        supraspinatus_volume = pred_volume(supraspinatus_mask)
+        row.append(supraspinatus_volume * scaling_factor)
 
     with file(os.path.join(case, "subscapularis_mask.npy"), "r") as file:
         subscapularis_mask = np.load(file)
-        subscapularis_volume = utils.pred_volume(subscapularis_mask)
-        row.append(subscapularis_volume*scaling_factor)
+        subscapularis_volume = pred_volume(subscapularis_mask)
+        row.append(subscapularis_volume * scaling_factor)
 
     with open(output_file, "a") as f:
         writer = csv.writer(f, delimiter=',')
