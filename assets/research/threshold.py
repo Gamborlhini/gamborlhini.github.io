@@ -79,7 +79,7 @@ for idx1, mask in MaskLst:
     for idx2, filenameImg in sliceLst:
         # img should be n x m x 3 which we cut down to n x m since the three channels
         # should be identical
-        img, img_ori = utils.read_image_one_hot(filenameImg, dtype=tf.dtypes.uint16)[..., 0]
+        img, img_ori = utils.read_image_one_hot(filenameImg, dtype=tf.dtypes.uint16)
 
         # ensure the slice of image and slice of mask have the same size
         try:
