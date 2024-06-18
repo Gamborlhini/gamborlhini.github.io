@@ -20,6 +20,6 @@ crop_list = list(csv.reader(open(crop_path)))
 crop_list = np.array(crop_list)
 
 for idx1, case in enumerate(case_list):
-    crop = crop_list[crop_list[:, 0] == case][1]
+    crop = int(crop_list[crop_list[:, 0] == case][1])
     mask = np.load(case + '/full_mask.npy')[crop:, ...]
     np.save(str(os.path.join(output_path, case, 'full_mask.npy')), mask)
