@@ -1,9 +1,0 @@
-<svg width="640" height="640" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">JHU Design Center project placeholder</title>
-  <desc id="desc">Placeholder image for the JHU Design Center project.</desc>
-  <rect width="640" height="640" fill="#fbfaf7"/>
-  <rect x="48" y="48" width="544" height="544" fill="#ffffff" stroke="#d9d2c8" stroke-width="3"/>
-  <path d="M168 320h304M320 168v304" stroke="#d9d2c8" stroke-width="3"/>
-  <text x="320" y="306" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800" fill="#171717">JHU Design</text>
-  <text x="320" y="350" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" fill="#68645d">placeholder image</text>
-</svg>

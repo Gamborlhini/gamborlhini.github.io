@@ -26,14 +26,14 @@ const projects = [
   {
     title: 'JHU Design Center Project',
     description: 'A Johns Hopkins Engineering Design Center gallery project entry.',
-    image: '/assets/imgs/project-jhu-placeholder.svg',
+    image: '/assets/imgs/dt_image.png',
     href: 'https://engineering.jhu.edu/designcenter/design-gallery/entry/46203/',
     meta: 'design center',
   },
   {
     title: 'Jet Engine',
     description: 'A standalone project website hosted at jetengine.subhas.net.',
-    image: '/assets/imgs/project-jetengine-placeholder.svg',
+    image: '/assets/imgs/jet_image.png',
     href: 'https://jetengine.subhas.net',
     meta: 'project site',
   },
