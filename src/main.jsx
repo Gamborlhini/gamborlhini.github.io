@@ -282,7 +282,7 @@ function Footer() {
     <footer className="site-footer">
       <p>© Nikhil Subhas</p>
       <div>
-        <a href="mailto:nikhil@subhas.net">Email</a>
+        <a href="mailto:nikhil.subhas@gmail.com">Email</a>
         <a href="https://github.com/gamborlhini" target="_blank" rel="noreferrer">
           GitHub
         </a>
