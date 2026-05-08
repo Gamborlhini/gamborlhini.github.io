@@ -4,8 +4,6 @@ import {
   ArrowLeft,
   ArrowUpRight,
   Download,
-  Menu,
-  X,
 } from 'lucide-react';
 import './styles.css';
 
@@ -115,12 +113,10 @@ function routeHref(route) {
 
 function App() {
   const [activeRoute, setActiveRoute] = useState(getRouteFromHash);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const onHashChange = () => {
       setActiveRoute(getRouteFromHash());
-      setIsMenuOpen(false);
       window.scrollTo({ top: 0 });
     };
 
@@ -135,9 +131,6 @@ function App() {
 
   return (
     <>
-      {activePage !== 'home' && (
-        <Header activePage={activePage} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      )}
       <main>
         {activePage === 'home' && <HomePage />}
         {activePage === 'bio' && <BioPage />}
@@ -149,48 +142,14 @@ function App() {
   );
 }
 
-function Header({ activePage, isMenuOpen, setIsMenuOpen }) {
-  return (
-    <header className="site-header">
-      <nav className="nav-shell" aria-label="Primary navigation">
-        <button
-          className="menu-button"
-          type="button"
-          aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          aria-expanded={isMenuOpen}
-          onClick={() => setIsMenuOpen((open) => !open)}
-        >
-          {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
-        <div className={`nav-links ${isMenuOpen ? 'is-open' : ''}`}>
-          <a className={activePage === 'home' ? 'is-active' : ''} href="#/">
-            Home
-          </a>
-          {navItems.map((item) => (
-            <a
-              className={activePage === item.route ? 'is-active' : ''}
-              href={routeHref(item.route)}
-              key={item.route}
-            >
-              {item.label}
-            </a>
-          ))}
-        </div>
-      </nav>
-    </header>
-  );
-}
-
 function HomePage() {
   return (
     <section className="landing-page">
       <div className="landing-copy">
-        <p className="kicker">student / developer / builder</p>
+        <p className="kicker">Cleveland, OH | Baltimore, MD</p>
         <h1>Nikhil Subhas</h1>
         <p className="lede">
-          I build web projects, small programs, simulations, and research tools.
-          This site is a compact index for my work, writing, background, and contact
-          information.
+          Class of 2026 student at Johns Hopkins University majoring in Biomedical Engineering. 
         </p>
       </div>
 
@@ -227,29 +186,24 @@ function BioPage() {
   return (
     <PageFrame
       eyebrow="bio"
-      title="Learning is my passion."
-      intro="I am interested in web development, app development, 3D printing, debate, and building projects that connect programming to other fields."
+      title="Translational Biomedical Engineer"
+      intro="Biomedical Engineering student at Johns Hopkins University focused on 
+      medical devices, imaging, and clinical innovation."
     >
       <div className="bio-layout">
         <figure>
-          <img src="/assets/imgs/avatar_hat.jpg" alt="Nikhil Subhas" />
-          <figcaption>Nikhil Subhas / Cleveland, Ohio</figcaption>
+          <img src="/assets/imgs/bio_image.jpeg" alt="Nikhil Subhas" />
+          <figcaption>Nikhil Subhas / Baltimore, MD</figcaption>
         </figure>
         <div className="prose">
           <p>
-            Throughout my elementary years I enjoyed math and science. It was then I
-            learned I love learning. As I progressed through school, I began to engage
-            in coding and enjoyed the logical and problem-solving challenges.
+            I have a focus in Imaging and Medical Devices with a minor in Applied Mathematics and Statistics. 
+            My work sits at the intersection of engineering, clinical care, and data-driven medical technology.
           </p>
           <p>
-            I started applying programming to other fields by creating websites that
-            extended aspects of my classes. I currently enjoy web development and have
-            been learning about app development for both mobile and Windows devices.
-          </p>
-          <p>
-            This website serves as a router to projects hosted on GitHub Pages, a
-            compact portfolio, and a contact sheet that I can keep updating as my work
-            changes.
+            I hope to engineering, imaging, and data-driven methods to practical clinical challenges. 
+            Through design, research, and clinical imaging experiences at Johns Hopkins and Cleveland Clinic, 
+            I have developed interests in medical devices, diagnostic imaging, and technologies that improve patient care.
           </p>
         </div>
       </div>
