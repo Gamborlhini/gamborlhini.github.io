@@ -22,47 +22,48 @@ const navItems = [
 
 const projects = [
   {
-    title: 'JHU Design Center Project',
-    description: 'A Johns Hopkins Engineering Design Center gallery project entry.',
+    title: 'Canary: Free Flap Prognosis',
+    description: 'Johns Hopkins Design Team project mentored by \
+    Michelle Zwernemann, Dr. Cecil Qiu and Dr. Hooman Soltanian',
     image: '/assets/imgs/dt_image.png',
     href: 'https://engineering.jhu.edu/designcenter/design-gallery/entry/46203/',
-    meta: 'design center',
+    meta: 'design',
   },
   {
     title: 'Jet Engine',
-    description: 'A standalone project website hosted at jetengine.subhas.net.',
+    description: 'High school capstone project building a small jet engine model',
     image: '/assets/imgs/jet_image.png',
     href: 'https://jetengine.subhas.net',
-    meta: 'project site',
+    meta: 'capstone',
   },
   {
     title: 'Nota',
-    description: 'A collaborative project from UHACKSWES.',
+    description: 'A note-taking project for UHACKSWES hackathon.',
     image: '/assets/imgs/p1.svg',
     href: 'https://gamborlhini.github.io/UHACKSWES',
-    meta: 'web project',
+    meta: 'web app',
   },
   {
     title: 'Slimy Portals',
-    description: 'A game project with custom mechanics and visual assets.',
+    description: 'A built-from-scratch game in collaboration with Shivam Engineer.',
     image: '/assets/imgs/p3.jpg',
     href: 'https://gamborlhini.github.io/Slimy_Portals',
     meta: 'game',
   },
   {
     title: 'CDC Simulator',
-    description: 'A downloadable simulation package.',
+    description: 'Downloadable game for Hacks Academy Hackathon.',
     image: '/assets/imgs/CDCSim.png',
     href: '/assets/downloads/CDCSim.zip',
-    meta: 'download',
+    meta: 'game',
     download: true,
   },
   {
     title: 'Little Programs',
-    description: 'A collection of focused programming experiments and small utilities.',
+    description: 'A collection of trivial utilities.',
     image: '/assets/imgs/p2.jpg',
     href: 'https://gamborlhini.github.io/LittlePrograms',
-    meta: 'programming archive',
+    meta: 'web app',
   },
 ];
 
@@ -215,8 +216,8 @@ function PublicationsPage() {
   return (
     <PageFrame
       eyebrow="publications"
-      title="Selected research and writing."
-      intro="A working index for research scripts, downloadable materials, and future publications."
+      title="Selected research"
+      intro="A working index of my publications"
     >
       <div className="list-stack">
         {publications.map((item) => (
@@ -248,8 +249,9 @@ function PortfolioPage() {
   return (
     <PageFrame
       eyebrow="portfolio"
-      title="Projects and experiments."
-      intro="A curated set of websites, games, and downloadable work."
+      title="Projects"
+      intro="A curated set of academic and recreational websites, games, 
+      and downloadable work."
     >
       <div className="portfolio-list">
         {projects.map((project) => (
